@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>BarGraph</title>
+	<link rel="stylesheet" type="text/css" href="BarGraph.css">
+	  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+	<script type="text/javascript">
+		google.charts.load('current', {packages: ['corechart', 'bar']});
+google.charts.setOnLoadCallback(drawBasic);
+
+function drawBasic() 
+{
+        var data = google.visualization.arrayToDataTable
+        ([
+         ['Element', 'In last seven days', { role: 'style' }],
+         ['New Users', 7, '#b87333'],      
+         ['Active Users', 10, 'blue'],        
+         ['Total Task', 15, 'green'],
+         ]);
+      var options = {
+        title: 'Report',
+        chartArea:{width :'30%'},
+        bar: {groupWidth: "60%"},
+        hAxis: 
+        {
+          title: 'Users data in last seven days',
+        },
+        vAxis: 
+        {
+          title: 'Users (scale of 1-50)'
+        }
+      };
+
+      var chart = new google.visualization.ColumnChart(
+        document.getElementById('chart_div'));
+
+      chart.draw(data, options);
+    }
+	</script>
+</head>
+<body>
+<div id="chart_div" class="chart"></div>
+</body>
+</html>
